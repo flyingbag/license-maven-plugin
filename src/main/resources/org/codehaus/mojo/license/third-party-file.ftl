@@ -35,13 +35,14 @@
     <#list licenses as license>
         <#assign result = result + " (" +license + ")"/>
     </#list>
+    <#assign result = result + "\t"/>
     <#return result>
 </#function>
 <#function artifactFormat p>
     <#if p.name?index_of('Unnamed') &gt; -1>
-        <#return p.artifactId + " (" + p.groupId + ":" + p.artifactId + ":" + p.version + " - " + (p.url!"no url defined") + ")">
+        <#return p.artifactId + "\t" + p.groupId + ":" + p.artifactId + ":" + p.version + "\t" + (p.url!"no url defined")>
     <#else>
-        <#return p.name + " (" + p.groupId + ":" + p.artifactId + ":" + p.version + " - " + (p.url!"no url defined") + ")">
+        <#return p.name + "\t" + p.groupId + ":" + p.artifactId + ":" + p.version + "\t" + (p.url!"no url defined")>
     </#if>
 </#function>
 
